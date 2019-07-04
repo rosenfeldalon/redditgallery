@@ -1,0 +1,41 @@
+<header></header>
+<div class="page-wrapper container-fluid">
+  <div class="sub-reddit-title">
+    <span class="name">r/{{$ctrl.searchParam}}</span>
+  </div>
+  <div class="gallery-wrapper">
+    <ul class="gallery-list" ng-if="$ctrl.redditImages && $ctrl.redditImages.length > 0">
+      <li ng-repeat="image in $ctrl.redditImages">
+        <span class="ups-wrapper">
+          <div class="ups">
+              <i class="glyphicon glyphicon-arrow-up" aria-hidden="true"></i>
+          {{image.ups | number:0 }}
+          <i class="glyphicon glyphicon-arrow-down" aria-hidden="true"></i>
+          </div>
+        </span>
+        <a ng-href="https://www.reddit.com{{image.permalink}}" target="_blank">
+          <div class="img-wrapper">
+            <img ng-src="{{image.url}}" class="gallery-image img-thumbnail"/>
+          </div>
+        </a>
+        <div class="title">{{image.title}}</div>
+      </li>
+    </ul>
+    <div class="spinner-wrapper" ng-if="!$ctrl.redditImages">
+      <img src="../../assets/images/spinner.gif" class="spinner">
+    </div>
+    <div class="error-wrapper" ng-if="$ctrl.redditImages.length === 0">
+      <div class="error-window">
+        <span class="error-icon">
+          <i class="glyphicon glyphicon-ban-circle"></i>
+        </span>
+        <h3>Something went wrong...</h3>
+        <p>You were trying to search for <b>{{$ctrl.searchParam}}</b>, it may not exist or incorrect.</p>
+        <p>Please try using another key word instead.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

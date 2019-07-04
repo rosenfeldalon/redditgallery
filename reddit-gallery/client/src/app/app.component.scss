@@ -1,0 +1,22 @@
+$icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
+@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+@import "scss/variables";
+
+.page-wrapper {
+  height: calc(100vh);
+  background-color: $light-grey;
+  padding: 48px 0 0;
+}
+
+.spinner-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+
+  .spinner {
+    width: 100%;
+    max-width: 80px;
+  }
+}

@@ -1,0 +1,124 @@
+@import "../scss/variables";
+
+.page-wrapper {
+
+  .sub-reddit-title {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 40px;
+    padding: 8px 16px;
+    background-color: $blue;
+
+    .name {
+      color: #fff;
+      font-size: 22px;
+      font-weight: bold;
+      margin-left: 10%;
+    }
+  }
+
+  .gallery-wrapper {
+    height: calc(100vh - 15%);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .gallery-list {
+      width: 60%;
+      max-width: 650px;
+      list-style: none;
+
+      li {
+        position: relative;
+        display: flex;
+        background-color: #fff;
+        margin-bottom: 20px;
+        border-radius: 4px;
+        z-index: 0;
+
+        .ups-wrapper {
+          background-color: $image-background;
+          width: 10%;
+          padding: 10px;
+
+          .ups {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            i {
+              margin: 2.5px 0;
+            }
+          }
+        }
+
+        .img-wrapper {
+          width: 90%;
+          padding: 10px;
+          .gallery-image {}
+        }
+
+        .title {
+          display: flex;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          z-index: 1;
+          min-height: 20%;
+          align-items: center;
+          padding: 20px;
+          background-color: rgba(0,0,0,0.5);
+          color: white;
+          width: 100%;
+          font-size: 16px;
+          visibility: hidden;
+          opacity: 0;
+          transition: visibility 0s, opacity 0.5s linear;
+        }
+
+        &:hover {
+          cursor: pointer;
+
+          .title {
+            visibility: visible;
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .error-wrapper {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      .error-window {
+        border: 1px solid red;
+        border-radius: 4px;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 6px 6px 10px 1px rgba(0,0,0,0.75);
+
+        .error-icon {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          i {
+            font-size: 33px;
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
