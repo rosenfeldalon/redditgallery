@@ -2,16 +2,9 @@ const express = require('express');
 const snoowrap = require('snoowrap');
 const router = express.Router();
 
-// todo: delete me
-router.get('/cats', (req, res, next) => {
-    res.send({
-        cats: [{name: 'lilly'}, {name: 'lucy'}],
-    })
-});
-
 // Create a new snoowrap requester with OAuth credentials.
 const r = new snoowrap({
-    userAgent: 'Web excercise for reddit :v1.0.0 (by /u/MrHaflo)',
+    userAgent: 'Web exercise for reddit :v1.0.0 (by /u/MrHaflo)',
     clientId: 'DQvAYspf1B6NkA',
     clientSecret: 'Tr2Ix2bkYjy7NXgTX69x4CYI6L8',
     username: 'MrHaflo',
@@ -19,14 +12,13 @@ const r = new snoowrap({
 });
 
 
-router.get('/getSubRedditByName', function (req, res, next) {
-    console.warn("PARAMS", req.query); // todo: delete me
+router.get('/getSubRedditByName', function (req, res) {
     const searchParam = req.query.searchParam;
     if (!searchParam) {
         // return error 400 bad request
         res.status(400).send("search param required! ");
     }
-    console.warn("PARAMS FROM CLIENT", searchParam);
+    console.log("PARAMS FROM CLIENT", searchParam);
     r.getSubreddit(searchParam).getTop({time: 'all'}).then((response) => {
         response.fetchMore({amount: 10}).then(extendedResponse => {
             let finalResponse = [];
